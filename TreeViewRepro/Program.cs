@@ -27,6 +27,16 @@ class XwtDemo
             var navigator = ts.AddNode().SetValue(f, "New element " + (++count).ToString());
             tree.SelectRow(navigator.CurrentPosition);
         };
+
+        var addChildButton = new Button("Add child element");
+        addChildButton.Clicked += (o, e) =>
+        {
+            var navigator = ts.GetNavigatorAt(tree.SelectedRow);
+            navigator.AddChild().SetValue(f, "New child");
+            tree.SelectRow(navigator.CurrentPosition);
+        };
+
+        vb.PackEnd(addChildButton);
         vb.PackEnd(addButton);
 
         nb.Add(tree, "Two");
