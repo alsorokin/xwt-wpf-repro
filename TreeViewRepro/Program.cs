@@ -1,5 +1,6 @@
 ﻿using System;
 using Xwt;
+using Samples;
 
 class XwtDemo
 {
@@ -8,7 +9,8 @@ class XwtDemo
     static void Main()
     {
         Application.Initialize(ToolkitType.Wpf);
-        var f = new DataField<string>();
+
+        /*var f = new DataField<string>();
         TreeStore ts = new TreeStore(f);
 
         var tree = new TreeView(ts);
@@ -40,12 +42,14 @@ class XwtDemo
         vb.PackEnd(addButton);
 
         nb.Add(tree, "Two");
+        */
         var mainWindow = new Window()
         {
             Title = "Xwt TreeView Repro",
             Width = 500,
             Height = 500
         };
+        var vb = new TreeViews();
         mainWindow.Content = vb;
         mainWindow.CloseRequested += (o, e) =>
         {
